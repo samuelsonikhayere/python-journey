@@ -1,0 +1,21 @@
+############## Lab Notes Processor ####################
+#-------------------------------------------------------
+#(c) Samson Samuel Ikhayere, July 2026
+
+line_count = 0
+word_count = 0
+
+with open('lab_notes.txt', 'r') as f, open('lab_notes_clean.txt', 'w') as wf:
+    for numb, line in enumerate(f, start=1):
+        stripped = line.strip()
+        print(f"{numb}: {stripped}")
+        line_count += 1
+        word_count += len(stripped.split())
+
+        if stripped:
+            wf.write(f"{stripped}\n")
+
+print('\n --- Summary ---')
+print(f"Total no of lines: {line_count} \nTotal no of words: {word_count}")
+
+print('\nClean version successfully saved to lab_notes_clean.txt!')
